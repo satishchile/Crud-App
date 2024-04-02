@@ -1,0 +1,42 @@
+<p>home works!</p>
+<p>postcomp works!</p>
+
+<hr>
+<ng-container *ngFor="let post of Allpost">
+    <div class="card-mb-3">
+        <div class="card-head">
+             <h4>{{post.id}}</h4>
+        </div>
+   </div>  
+    <div class="card-mb-3">
+           <div class="card-head">
+                <h4>{{post.title}}</h4>
+           </div>
+      </div>
+      <div class="card-mb-3">
+        <div class="card-body">
+             <h4>{{post.body}}</h4>
+        </div>
+        <div class="card-mb-3">
+            <div class="card-footer text-right">
+                <button class="btn btn-info ml-3"[routerLink]="['/update',post.id]">Edit</button>
+                <button class="btn btn-danger"(click)="ondeletepost(post.id)">Delete</button>
+            </div>
+      </div>
+
+      </div>
+</ng-container>
+
+
+<ng-container *ngIf="Allpost.length===0 && !errormsg">
+         <p class="alert alert-info">
+              There Is No Post Available Yet!!
+         </p>
+</ng-container>
+
+<ng-container *ngIf="errormsg">
+ <p class="alert alert-danger">
+        {{errormsg}}
+ </p>
+</ng-container>
+

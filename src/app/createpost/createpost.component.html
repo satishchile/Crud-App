@@ -1,0 +1,17 @@
+<p>createpost works!</p>
+
+<div class="container w-50 border mt-2 p-2">
+    <h4>Post Form</h4>
+    <form [formGroup]="postform" (ngSubmit)="submitfun()">
+        <div class="mb-3">
+            <label for="id1" class="form-label">Title</label>
+            <input type="text" class="form-control" id="id1"  formControlName="title">       
+         </div>
+        <div class="mb-3">
+            <label for="id2" class="form-label">Post</label>
+            <input type="text" class="form-control" id="id2" formControlName="body">
+        </div>
+        <button type="submit" class="btn btn-primary" *ngIf="updateBtnFlage">create post</button>
+        <button type="button" class="btn btn-primary" *ngIf="!updateBtnFlage">update post</button>
+    </form>
+</div>
